@@ -1,2 +1,4 @@
 .idea/*
 *.iml
+# 忽略target目录下的文件
+target/
