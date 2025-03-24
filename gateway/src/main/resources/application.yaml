@@ -10,13 +10,17 @@ spring:
         server-addr: 127.0.0.1:8848
     gateway:
       routes:
-        - id: user-service
+        - id: user-route
           uri: lb://user-service
           predicates:
             - Path=/user/**
             - Harrison=GET
           filters:
             - Harrison=111
+        - id: auth-route
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**
       default-filters:
         - StripPrefix=1
 #            - name: Harrison
